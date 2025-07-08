@@ -4,4 +4,9 @@
 ---
 
 ## 我的文章
-* ~~ 暂时还没有更新 ~~
+
+<details> <summary>Python基础</summary>
+- [Python多进程、多线程、多管程浅解](www.bing.com)
+- [Python上下文管理器浅解](www.bing.com)
+</details>
+** ~~暂时还没有更新~~
