@@ -5,7 +5,7 @@
 
 ## 我的文章
 
-<details><summary markdown="span">Github博客制作</summary>
+<details><summary>Github博客制作</summary>
 
 - [博客架构解析](https://example.com)
 - [语法注意事项](https://example.com)
