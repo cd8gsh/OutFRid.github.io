@@ -6,13 +6,13 @@
 ## 我的文章
 
 <details>
-    <summary>Github博客制作</summary>
+    <summary markdown="span">Github博客制作</summary>
 
 - [博客架构解析](https://example.com)
 - [语法注意事项](https://example.com)
 </details>
 <details>
-    <summary>Python基础</summary>
+    <summary markdown="span">Python基础</summary>
 
 - [Python多进程、多线程、多管程浅解](https://example.com)
 - [Python上下文管理器浅解](https://example.com)
