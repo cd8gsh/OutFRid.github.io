@@ -8,14 +8,14 @@
 <details>
     <summary>Github博客制作</summary>
 
-    - [博客架构解析](www.bing.com)
-    - [语法注意事项](www.bing.com)
+- [博客架构解析](https://example.com)
+- [语法注意事项](https://example.com)
 </details>
 <details>
     <summary>Python基础</summary>
 
-    - [Python多进程、多线程、多管程浅解](www.bing.com)
-    - [Python上下文管理器浅解](www.bing.com)
+- [Python多进程、多线程、多管程浅解](https://example.com)
+- [Python上下文管理器浅解](https://example.com)
 </details>
 
 ** ~~暂时还没有其他更新~~
