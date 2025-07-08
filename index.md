@@ -5,8 +5,17 @@
 
 ## 我的文章
 
-<details> <summary>Python基础</summary>
-- [Python多进程、多线程、多管程浅解](www.bing.com)
-- [Python上下文管理器浅解](www.bing.com)
+<details>
+    <summary>Github博客制作</summary>
+
+    - [博客架构解析](www.bing.com)
+    - [语法注意事项](www.bing.com)
 </details>
-** ~~暂时还没有更新~~
+<details>
+    <summary>Python基础</summary>
+
+    - [Python多进程、多线程、多管程浅解](www.bing.com)
+    - [Python上下文管理器浅解](www.bing.com)
+</details>
+
+** ~~暂时还没有其他更新~~
