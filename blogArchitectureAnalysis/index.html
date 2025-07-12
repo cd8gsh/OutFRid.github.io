@@ -21,15 +21,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="博客架构分析">
+  <meta name="description" content="这篇文章通过引用、分析来介绍如何快速实现自己的github博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github博客制作">
 <meta property="og:url" content="http://example.com/blogArchitectureAnalysis/index.html">
 <meta property="og:site_name" content="OutFRid&#39;s Blog">
+<meta property="og:description" content="这篇文章通过引用、分析来介绍如何快速实现自己的github博客">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-12T09:03:16.000Z">
-<meta property="article:modified_time" content="2025-07-12T09:06:38.649Z">
+<meta property="article:modified_time" content="2025-07-12T10:48:12.019Z">
 <meta property="article:author" content="OutFRid">
-<meta property="article:tag" content="blog">
+<meta property="article:tag" content="-blog">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/blogArchitectureAnalysis/">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>博客架构分析 | OutFRid's Blog</title>
+  <title>Github博客制作 | OutFRid's Blog</title>
   
 
 
@@ -202,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          博客架构分析
+          Github博客制作
         </h1>
 
         <div class="post-meta">
@@ -213,7 +215,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2025-07-12 17:03:16 / Modified: 17:06:38" itemprop="dateCreated datePublished" datetime="2025-07-12T17:03:16+08:00">2025-07-12</time>
+              <time title="Created: 2025-07-12 17:03:16 / Modified: 18:48:12" itemprop="dateCreated datePublished" datetime="2025-07-12T17:03:16+08:00">2025-07-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,11 +223,12 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
+                  <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">-blog</span></a>
                 </span>
             </span>
 
           
+            <div class="post-description">这篇文章通过引用、分析来介绍如何快速实现自己的github博客</div>
 
         </div>
       </header>
@@ -236,7 +239,61 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+        <h2 id="前情提要-无用"><a href="#前情提要-无用" class="headerlink" title="前情提要 (无用)"></a>前情提要 (<del>无用</del>)</h2><hr>
+<p>出于方便复习、找工作、<del>装呗</del>等各种原因，博主开始了编写github博客，构建历程还是很坎坷的，期间由于信息闭塞，一开始选择手动构建博客框架，吃了不少苦头，最后选择了使用hexo来构建博客，与原来相同的工作量可以构建出更精美漂亮的博客，还兼容多种插件如gitalk等等。</p>
+<p>如果对手动构建博客还感兴趣的朋友可以参考本仓库的legacy-main分支，也就是我的构建博客废案</p>
+<p>简单介绍一下：</p>
+<pre><code>posts文件夹 存放想要发布的文章
+
+images文件夹 存放图片
+
+index.md 是github page自动生成博客首页的md源文件
+</code></pre>
+<h2 id="博客架构构建"><a href="#博客架构构建" class="headerlink" title="博客架构构建"></a>博客架构构建</h2><hr>
+<p>通过右上角可以直接看到我的博客源代码，你会发现一大串的文件夹与文件，不用害怕，绝大多数都是hexo自动生成的（赞美前人）。</p>
+<p>你需要准备的有：github账号、本地git（可选）、node.js(只需安装)、以及markdown和yml的基础语法知识等等</p>
+<p>这里有一篇我找到的最无脑向的教程</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/371995929">前往知乎看教程</a></li>
+</ul>
+<p><strong>注意</strong> ：该文章关于gitalk等额外甜品功能的配置，说明得很潦草，可以参考下面这两篇博客</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://kuroha.vip/hexo/next_theme_beautify.html#%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F">前往看博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://yuanlichenai.cn/2020/01/16/Gitalk/">gitalk专场</a></li>
+</ul>
+<p>如果你看完了上面的教程，那你肯定已经构建好一个基本的博客框架了。如果你想要和我一样有一个主页实现目录功能，需要参考接下来的部分</p>
+<h2 id="目录文章构建"><a href="#目录文章构建" class="headerlink" title="目录文章构建"></a>目录文章构建</h2><hr>
+<p><del>单纯从不想浪费之前的手工制作主页</del></p>
+<ul>
+<li><a href="../index/index.html">提前看一眼实现效果</a></li>
+</ul>
+<p>由于使用了hexo框架，主页默认展示的是文章的集合，这部分我不打算更改（<del>菜的</del>），因为指向自定义的主页会与已有框架主题不兼容，而且框架本身提供了categories功能，可以实现分类功能</p>
+<p> 可以看到我的主页包含了一个可折叠的分类菜单，这部分据查在markdown中当下挂项目过多时由渲染自动实现，但我是通过html手工实现了一个。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">summary</span> <span class="attr">markdown</span>=<span class="string">&quot;span&quot;</span>&gt;</span></span>Github博客制作<span class="language-xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [<span class="string">博客架构解析</span>](<span class="link">../hello-world/index.html</span>)</span><br><span class="line"><span class="bullet">-</span> [<span class="string">语法注意事项</span>](<span class="link">https://example.com</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>这是md文件中的写法，但是，坑人的来了——github page默认的md解释器是不支持在html代码块中解释md代码的，所以，想要实现折叠功能，需要在博客项目根目录下的_config.yml文件中加上如下代码:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The release of Jekyll Now</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">v1.2.0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">markdown:</span> <span class="string">kramdown</span></span><br><span class="line"><span class="attr">kramdown:</span></span><br><span class="line"><span class="comment"># Use GitHub flavored markdown, including triple backtick fenced code blocks</span></span><br><span class="line">  <span class="attr">input:</span> <span class="string">GFM</span></span><br><span class="line">  <span class="attr">parse_block_html:</span> <span class="literal">true</span>  <span class="comment"># 启用HTML块内Markdown解析</span></span><br></pre></td></tr></table></figure>
+<p>综上，你就可以通过你的md知识，构建出一个简单的目录文章（<del>我可没有在骂人</del>）</p>
+<h2 id="语法注意事项"><a href="#语法注意事项" class="headerlink" title="语法注意事项"></a>语法注意事项</h2><hr>
+<p>如何在文章中引用本站文章呢(不通过htttp形式的链接)?</p>
+<p>由于你的文章md文件保存在theme&#x2F;%yourTheme&#x2F;source&#x2F;posts目录下，</p>
+<p>假设你当前在文章1，md传统写法是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[跳转！](文章2.md)</span><br></pre></td></tr></table></figure>
+<p>Buuuuuut！！！因为hexo框架的设计，实际跳转是在public中找到生成好的html文件，而上述代码被框架翻译来就是，在public&#x2F;文章1&#x2F;文件夹下寻找名为文章2.md的文件</p>
+<p>此时public文件夹内容如下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">public:</span></span><br><span class="line">  <span class="string">文章1：</span></span><br><span class="line">    <span class="string">index.html</span></span><br><span class="line">  <span class="string">文章2：</span></span><br><span class="line">    <span class="string">index.html</span></span><br></pre></td></tr></table></figure>
+<p>所以，正确的写法是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[跳转！](../文章1/index.html)</span><br></pre></td></tr></table></figure>
+<p>注意public下html存放的文件夹的名称与项目根目录下_config.yml文件中的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: :title/ #这条参数有关，我设置的是title，避免了日期格式的多重目录</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
     </div>
 
     
@@ -245,7 +302,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/blog/" rel="tag"># blog</a>
+              <a href="/tags/blog/" rel="tag"># -blog</a>
           </div>
 
         
@@ -317,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81-%E6%97%A0%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">前情提要 (无用)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%9E%B6%E6%9E%84%E6%9E%84%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">博客架构构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%96%87%E7%AB%A0%E6%9E%84%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">目录文章构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">4.</span> <span class="nav-text">语法注意事项</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -333,7 +390,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
